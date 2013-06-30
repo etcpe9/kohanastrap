@@ -90,7 +90,10 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  expose      set the X-Powered-By header                        FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/kohana/',
+	'base_url'   => '/kohanastrap/',
+	'index_file' => FALSE,
+	'charset' => 'utf-8',
+	'errors'	=> TRUE,
 ));
 
 /**
@@ -102,6 +105,9 @@ Kohana::$log->attach(new Log_File(APPPATH.'logs'));
  * Attach a file reader to config. Multiple readers are supported.
  */
 Kohana::$config->attach(new Config_File);
+
+Cookie::$salt =  'Jt[u3X"~Ar`1XuY+k!,vCTBn@Jh$JPN"M7NEnvHL!X}|Y|n&Jr)V6R{15K(8x%}';
+Cookie::$expiration = 1209600;
 
 /**
  * Enable modules. Modules are referenced by a relative or absolute path.
